@@ -118,7 +118,7 @@ export const getParameterInfo = (parameter: string): {
   average?: number | null;
   minMax?: { min: number; max: number } | null;
   alarms?: AlarmEvent[];
-  alarmConfig?: any;
+  alarmConfig?: { id: string; sensorId: string; parameterName: string; minThreshold?: number; maxThreshold?: number; severity: string; enabled: boolean } | undefined;
 } => {
   const store = useAppStore.getState();
   

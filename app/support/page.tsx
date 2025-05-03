@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { DashboardLayout } from "@/components/dashboard/dashboard-layout";
-import { FiSend, FiUser, FiMessageSquare, FiTrash2, FiActivity, FiThermometer, FiDroplet, FiWind, FiZap } from "react-icons/fi";
+import { FiSend, FiUser, FiMessageSquare, FiTrash2 } from "react-icons/fi";
 import { ChatMessage } from "@/types";
 import { 
   saveChatHistory, 
@@ -13,14 +13,9 @@ import {
   getConversationContext 
 } from "@/lib/services/chat-memory-service";
 import {
-  getLatestSensorReading,
-  getSensorAverage,
   getActiveAlarms,
-  getSystemState,
-  getRecentInsights,
   generateSystemSummary,
-  generateSensorSummary,
-  getParameterInfo
+  generateSensorSummary
 } from "@/lib/services/chat-data-service";
 
 // Enhanced bot responses with real-time data capability
