@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useTheme } from "@/components/theme-provider";
 import { FiMoon, FiSun, FiBell, FiSettings, FiMenu, FiX } from "react-icons/fi";
@@ -49,8 +50,9 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
                 )}
               </button>
               <div className="flex-shrink-0 flex items-center">
-                <Link href="/" className="flex items-center">
-                  <img src="/logo.png" alt="BioIoT Dashboard Logo" className="h-12 w-auto" />
+                <Link href="/" className="flex items-center gap-2">
+                  <Image src="/logo.png" alt="BioPower Logo" width={48} height={48} />
+                  <span className="text-xl font-bold text-indigo-600 dark:text-indigo-400">BioPower</span>
                 </Link>
               </div>
               <nav className="hidden md:ml-6 md:flex md:space-x-8">

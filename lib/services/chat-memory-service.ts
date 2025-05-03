@@ -29,7 +29,7 @@ export const loadChatHistory = (): ChatMessage[] => {
         const parsed = JSON.parse(history);
         
         // Convert string timestamps back to Date objects
-        return parsed.map((message: any) => ({
+        return parsed.map((message: { timestamp: string; id: string; content: string; sender: "user" | "bot" }) => ({
           ...message,
           timestamp: new Date(message.timestamp)
         }));
@@ -58,7 +58,7 @@ export const clearChatHistory = (): void => {
 // Context memory for more advanced conversation tracking
 interface ConversationContext {
   lastTopics: string[];
-  userPreferences: Record<string, any>;
+  userPreferences: Record<string, string | number | boolean>;
   frequentQueries: Record<string, number>;
 }
 
@@ -152,7 +152,7 @@ export const recordQuery = (query: string): void => {
 /**
  * Updates user preferences based on conversation
  */
-export const updateUserPreference = (key: string, value: any): void => {
+export const updateUserPreference = (key: string, value: string | number | boolean): void => {
   const context = getConversationContext();
   const userPreferences = { ...context.userPreferences };
   
