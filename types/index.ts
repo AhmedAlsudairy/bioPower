@@ -1,3 +1,11 @@
+// Chat types
+export interface ChatMessage {
+  id: string;
+  content: string;
+  sender: "user" | "bot";
+  timestamp: Date;
+}
+
 // Types for sensor readings
 export interface SensorReading {
   id: string;

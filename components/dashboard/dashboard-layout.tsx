@@ -49,9 +49,9 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
                 )}
               </button>
               <div className="flex-shrink-0 flex items-center">
-                <h1 className="text-xl font-bold text-indigo-600 dark:text-indigo-400">
-                  BioIoT Dashboard
-                </h1>
+                <Link href="/" className="flex items-center">
+                  <img src="/logo.png" alt="BioIoT Dashboard Logo" className="h-12 w-auto" />
+                </Link>
               </div>
               <nav className="hidden md:ml-6 md:flex md:space-x-8">
                 <Link
@@ -77,6 +77,12 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
                   className={`${pathname === '/insights' ? 'border-indigo-500 text-gray-900 dark:text-white' : 'border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200'} inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
                 >
                   AI Insights
+                </Link>
+                <Link
+                  href="/support"
+                  className={`${pathname === '/support' ? 'border-indigo-500 text-gray-900 dark:text-white' : 'border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200'} inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
+                >
+                  Support Chat
                 </Link>
               </nav>
             </div>
@@ -152,6 +158,12 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
               className={`${pathname === '/insights' ? 'bg-indigo-50 dark:bg-indigo-900 border-indigo-500 text-indigo-700 dark:text-indigo-200' : 'border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200'} block pl-3 pr-4 py-2 border-l-4 text-base font-medium`}
             >
               AI Insights
+            </Link>
+            <Link
+              href="/support"
+              className={`${pathname === '/support' ? 'bg-indigo-50 dark:bg-indigo-900 border-indigo-500 text-indigo-700 dark:text-indigo-200' : 'border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200'} block pl-3 pr-4 py-2 border-l-4 text-base font-medium`}
+            >
+              Support Chat
             </Link>
           </div>
           <div className="pt-4 pb-3 border-t border-gray-200 dark:border-gray-700">

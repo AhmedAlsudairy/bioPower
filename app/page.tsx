@@ -17,61 +17,81 @@ export default function Home() {
   
   return (
     <DashboardLayout>
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Dashboard</h1>
-          <div className="flex items-center space-x-2">
+      {/* Sticky header for mobile */}
+      <div className="sticky top-0 z-10 bg-gray-50 dark:bg-gray-900 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 py-4 mb-6 shadow-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-0">Dashboard</h1>
+          <div className="flex items-center justify-between sm:justify-end w-full sm:w-auto">
             <span className="text-sm text-gray-500 dark:text-gray-400">Last updated: 1 minute ago</span>
-            <button className="px-3 py-1 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <button className="ml-3 px-3 py-1 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Refresh
             </button>
           </div>
         </div>
+      </div>
+      
+      <div className="space-y-6">
 
         {/* Overview section */}
         <OverviewCard className="" />
 
         {/* Main dashboard grid */}
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:gap-6 lg:grid-cols-3">
           {/* Sensor charts */}
-          <div className="col-span-2 space-y-6">
-            <SensorChart 
-              sensorId="temp-1" 
-              title="Temperature" 
-              color="#3B82F6" 
-              unit="°C" 
-              timeRange="24h" 
-            />
-            <SensorChart 
-              sensorId="ph-1" 
-              title="pH Level" 
-              color="#10B981" 
-              unit="pH" 
-              timeRange="24h" 
-            />
-            <SensorChart 
-              sensorId="methane-1" 
-              title="Methane Concentration" 
-              color="#F59E0B" 
-              unit="%" 
-              timeRange="24h" 
-            />
-            <SensorChart 
-              sensorId="pressure-1" 
-              title="Pressure" 
-              color="#8B5CF6" 
-              unit="kPa" 
-              timeRange="24h" 
-            />
+          <div className="col-span-1 lg:col-span-2 space-y-4 md:space-y-6">
+            <div className="overflow-x-auto pb-2">
+              <div className="min-w-[300px]">
+                <SensorChart 
+                  sensorId="temp-1" 
+                  title="Temperature" 
+                  color="#3B82F6" 
+                  unit="°C" 
+                  timeRange="24h" 
+                />
+              </div>
+            </div>
+            <div className="overflow-x-auto pb-2">
+              <div className="min-w-[300px]">
+                <SensorChart 
+                  sensorId="ph-1" 
+                  title="pH Level" 
+                  color="#10B981" 
+                  unit="pH" 
+                  timeRange="24h" 
+                />
+              </div>
+            </div>
+            <div className="overflow-x-auto pb-2">
+              <div className="min-w-[300px]">
+                <SensorChart 
+                  sensorId="methane-1" 
+                  title="Methane Concentration" 
+                  color="#F59E0B" 
+                  unit="%" 
+                  timeRange="24h" 
+                />
+              </div>
+            </div>
+            <div className="overflow-x-auto pb-2">
+              <div className="min-w-[300px]">
+                <SensorChart 
+                  sensorId="pressure-1" 
+                  title="Pressure" 
+                  color="#8B5CF6" 
+                  unit="kPa" 
+                  timeRange="24h" 
+                />
+              </div>
+            </div>
           </div>
 
           {/* Active alarms */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Active Alarms</h2>
-            <div className="space-y-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 sm:p-6">
+            <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">Active Alarms</h2>
+            <div className="space-y-3 sm:space-y-4">
               <div className="p-3 bg-red-100 dark:bg-red-900/20 text-red-800 dark:text-red-200 rounded-md">
-                <p className="font-medium">Temperature Out of Range</p>
-                <p className="text-sm mt-1">Value: 36.5°C (Max: 35°C)</p>
+                <p className="font-medium text-sm sm:text-base">Temperature Out of Range</p>
+                <p className="text-xs sm:text-sm mt-1">Value: 36.5°C (Max: 35°C)</p>
                 <div className="flex justify-between mt-2">
                   <span className="text-xs text-red-700 dark:text-red-300">5 minutes ago</span>
                   <button className="text-xs font-medium text-red-700 dark:text-red-300 hover:underline">
@@ -80,8 +100,8 @@ export default function Home() {
                 </div>
               </div>
               <div className="p-3 bg-amber-100 dark:bg-amber-900/20 text-amber-800 dark:text-amber-200 rounded-md">
-                <p className="font-medium">Pressure Rising</p>
-                <p className="text-sm mt-1">Value: 148 kPa (Max: 150 kPa)</p>
+                <p className="font-medium text-sm sm:text-base">Pressure Rising</p>
+                <p className="text-xs sm:text-sm mt-1">Value: 148 kPa (Max: 150 kPa)</p>
                 <div className="flex justify-between mt-2">
                   <span className="text-xs text-amber-700 dark:text-amber-300">10 minutes ago</span>
                   <button className="text-xs font-medium text-amber-700 dark:text-amber-300 hover:underline">
@@ -94,7 +114,7 @@ export default function Home() {
         </div>
 
         {/* Bottom section */}
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 md:gap-6 lg:grid-cols-2">
           {/* Timeline */}
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
             <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Recent Events</h2>
